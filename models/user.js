@@ -7,7 +7,6 @@ const users = [
 
 const createUser = data => {
   let res = lodash.find(users,["email",data.email]);
-  console.log(typeof(res));
   if(typeof(res) !== 'undefined')
   {
     return 403;
@@ -16,7 +15,6 @@ const createUser = data => {
   {
     data["id"] = shortid.generate();
     users.push(data);
-    // console.log(data);  
     return users;
   }
 
@@ -26,8 +24,6 @@ const createUser = data => {
 const updateUser = (id, data) => {
   const index = users.findIndex(user => user.id === id);
   let res = lodash.find(users,["email",data.email]);
-  console.log(res)
-  console.log(data.email)
   if(typeof(res) !=='undefined')
   {
     return 403;
@@ -51,8 +47,6 @@ const deleteUser =(id) =>{
 
 const getUserById =(id) =>{
   let res = lodash.findIndex(users,["id",id.id]);
-  console.log(id)
-  console.log(res);
   if(res !==-1){
     return users[res];
   }else{
